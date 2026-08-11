@@ -9,6 +9,7 @@ function increaseCount() {
 function resetCount(){
     count = 0;
     alert("Followers count reset");
+    displayCount()
 }
 
 function displayCount() {
