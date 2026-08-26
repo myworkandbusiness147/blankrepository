@@ -54,4 +54,38 @@ xhr.onload = function(){
 
 xhr.send();
 
+var xhr2 = new XMLHttpRequest();
 
+var url2 = './news.json'
+
+xhr2.open('GET', url2, true);
+
+xhr2.responseType = 'json';
+
+xhr2.onload = function(){
+    var articles = xhr2.response.articles;
+    var articlesDiv = document.getElementById('articles');
+
+    articles.forEach(function(article) {
+        var articleDiv = document.createElement('div');
+        articleDiv.classList.add('article');
+  
+        var title = document.createElement('h2');
+        title.textContent = article.title;
+  
+        var description = document.createElement('p');
+        description.textContent = article.description;
+
+        var author = document.createElement('h6');
+        author.textContent = article.author;
+  
+        articleDiv.appendChild(title);
+        articleDiv.appendChild(description);
+        articleDiv.appendChild(author);
+  
+        articlesDiv.appendChild(articleDiv);
+      });
+  
+}
+
+xhr2.send();
